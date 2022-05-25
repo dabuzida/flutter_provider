@@ -1,0 +1,60 @@
+https://petercoding.com/flutter/2021/07/11/using-provider-in-flutter/
+Provider: 상태관리 + 등록된 client에 갱신된 data를 전달하여 rebuild까지 시킴
+1. Provider 사용
+ Provider<String>(
+      create: (BuildContext context) =>  "5", 	
+      child: 위젯트리의 최상단 위젯
+>> 모든 child 위젯들은 "5"를 사용할 수 있음
+
+2. child위젯에서 사용법
+ Widget build(BuildContext context) {
+    String result = Provider.of<String>(context); <<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(this.title!),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAl
+          ignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Text(
+              'You have pushed the button this many times:',
+            ),
+               Text(
+                '$result',
+                style: Theme.of(context).textTheme.headline4,
+              )
+            ,
+
+>> String result = Provider.of<String>(context);  : // build 메소드에서 이런식으로 접근, of()가 위젯트리에서 가장가까운 Provider를 가져와 값 반환
+of() 선언 형태: T of<T>(BuildContext context, {bool listen = true})      true: provider 값이 업뎃되면 자동 rebuild 호출, false: rebuild호출x
+
+3. ChangeNotifierProvider: Provider의 특별한 type. 값이 변하는 state를 다루기 위해 사용. 위의 Provider는 고정값이었음
+ChangeNotifierProvider<CounterViewModel>(
+      create: (BuildContext context) => CounterViewModel(), // class CounterViewModel extends ChangeNotifier {
+      child: 위젯트리의 최상단 위젯
+
+>> create 속성을 이용하여 ChangeNotifier를 생성함( CounterViewModel은 ChangeNotifier를 상속한 클래스)
+>> ChangeNotifierProvider가 CounterViewModel를 listening하고 있어 변화가 감지되면 ui를 업뎃시킴
+
+
+4. ChangeNotifer 는 Flutter SDK에서 제공하는 변화를 알려주는 API 
+-따라서 ChangeNotifer는 notifyListener() 메소드를 포함함.
+-notifyListener()이 호출되면 등록된 모든 client는 값이 변햇음을 알림 받음.
+
+
+5. Consumer: CounterViewModel의 getter 에 접근하기 위해서 사용하는 위젯
+Consumer<CounterViewModel>(builder: (context, viewModel, child) {
+              return Text(
+                '${viewModel.counter}',
+                style: Theme.of(context).textTheme.headline4,
+              );
+-Consumer위젯은 builder를 가지고 있고, ChangeNotifierProvider가 변화를 알림받을때마다 호출됨
+-builder의 3가지 매개변수: context, viewModel, child
+-viewModel: CounterViewModel의 속성과 메소드를 사용할 수 있게 해줌
+-child: rebuild를 피하기 위해 사용하는 옵션
+
+
+
+
