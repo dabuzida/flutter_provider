@@ -42,8 +42,8 @@ class MyApp extends StatelessWidget {
           appBar: AppBar(
             title: const Text('Provider'),
             elevation: 0,
-            foregroundColor: Colors.cyanAccent,
-            backgroundColor: Colors.black,
+            foregroundColor: Colors.white,
+            backgroundColor: Colors.teal,
             centerTitle: true,
           ),
           backgroundColor: Colors.grey,
