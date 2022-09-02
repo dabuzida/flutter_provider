@@ -28,15 +28,8 @@ class MyApp extends StatelessWidget {
       title: 'Provider',
       color: context.watch<ThemeColor>().color,
       theme: ThemeData(
-        primaryColor: Colors.amber, // context.watch<ThemeColor>().color,
-        // brightness: Brightness.dark,
-        // primaryColor: Colors.lightBlue[800],
-
-        // Define the default font family.
+        primaryColor: Colors.amber,
         fontFamily: 'Georgia',
-
-        // Define the default `TextTheme`. Use this to specify the default
-        // text styling for headlines, titles, bodies of text, and more.
         textTheme: const TextTheme(
           headline1: TextStyle(fontSize: 72.0, fontWeight: FontWeight.bold),
           headline6: TextStyle(fontSize: 36.0, fontStyle: FontStyle.italic),
