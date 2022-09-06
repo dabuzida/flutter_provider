@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 
-class CountProvider extends ChangeNotifier {
+class Count extends ChangeNotifier {
   int _count = 0;
+  int _count2 = 0;
 
   int get count => _count;
+  int get count2 => _count2;
 
   void increase() {
-    ++_count;
+    _count++;
+    _count2++; //select 테스트 해보려고
     notifyListeners();
   }
 
   void decrease() {
-    --_count;
+    _count--;
+    _count2--;
     notifyListeners();
   }
 }

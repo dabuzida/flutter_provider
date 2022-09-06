@@ -1,7 +1,7 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class ThemeColor with ChangeNotifier {
-  Color _color = const Color.fromRGBO(80, 80, 80, 1);
+  Color _color = Colors.blue[100]!;
   Color get color => _color;
 
   Color red = const Color.fromRGBO(237, 115, 88, 1);

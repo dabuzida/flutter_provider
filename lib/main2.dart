@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-void main() {
-  runApp(ExampleApp());
-}
+void main() => runApp(const MyApp());
 
-class ExampleApp extends StatelessWidget {
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+//컨슈머 테스트 ㄱㄱ
   @override
   Widget build(BuildContext context) {
     return ChangeNotifierProvider<Counter>(
@@ -15,7 +16,8 @@ class ExampleApp extends StatelessWidget {
         title: 'Provider Example',
         home: Scaffold(
           appBar: AppBar(
-            title: Text('Provider Example'),
+            title: const Text('Provider Example'),
+            centerTitle: true,
           ),
           body: Center(
             child: Consumer<Counter>(
@@ -43,15 +45,15 @@ class Example extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Provider Example'),
+        title: const Text('Provider Example'),
       ),
       body: Center(
         child: ElevatedButton(
           child: Text(
-            '현재 숫자: ${Provider.of<Counter>(context).count}', // Provider.of<Counter>(context) 사용.
+            '현재 숫자: ${Provider.of<Counter>(context).count}',
           ),
           onPressed: () {
-            Provider.of<Counter>(context, listen: false).increment(); // Provider.of<Counter>(context, listen: false) 사용.
+            Provider.of<Counter>(context, listen: false).increment();
           },
         ),
       ),
@@ -66,6 +68,7 @@ class Counter extends ChangeNotifier {
 
   void increment() {
     _count++;
-    notifyListeners(); // 숫자가 증가했다는 것을 ChangeNotifierProvider에 알려주기 위해 notifyListeners()를 호출한다.
+    notifyListeners();
+    // 숫자가 증가했다는 것을 ChangeNotifierProvider에 알려주기 위해 notifyListeners()를 호출한다.
   }
 }
