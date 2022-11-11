@@ -1,27 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'provider/count.dart';
 
-class CounterB extends StatefulWidget {
-  const CounterB({Key? key}) : super(key: key);
+import 'counter_model_2.dart';
+
+class ScreenB extends StatefulWidget {
+  const ScreenB({Key? key}) : super(key: key);
 
   @override
-  State<CounterB> createState() => _CounterBState();
+  State<ScreenB> createState() => _ScreenBState();
 }
 
-class _CounterBState extends State<CounterB> {
+class _ScreenBState extends State<ScreenB> {
   @override
   Widget build(BuildContext context) {
-    Count _countProvider = Provider.of<Count>(context, listen: false);
+    CounterModel2 _countProvider = Provider.of<CounterModel2>(context, listen: false);
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Consumer<Count>(
+          Consumer<CounterModel2>(
             builder: (context, countProvider, child) => Text(
               // Provider.of<Count>(context).count.toString(),
               // context.watch<Count>().count.toString(),
-              context.select<Count, int>((Count provider) => provider.count).toString(),
+              context.select<CounterModel2, int>((CounterModel2 provider) => provider.count).toString(),
               style: const TextStyle(fontSize: 60),
             ),
           ),

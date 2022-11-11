@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class Count extends ChangeNotifier {
+class CounterModel2 extends ChangeNotifier {
   int _count = 0;
   int _count2 = 0;
 
