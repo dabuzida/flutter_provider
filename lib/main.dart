@@ -6,6 +6,7 @@ import 'package:provider/single_child_widget.dart';
 
 import 'counter/counter_model.dart';
 import 'counter/counter_screen.dart';
+import 'counter/counter_screen_ii.dart';
 import 'counter2/counter_screen_2.dart';
 
 void main() => runApp(const MyApp());
@@ -21,7 +22,8 @@ class MyApp extends StatelessWidget {
       create: (_) => CounterModel(),
       child: const MaterialApp(
         title: 'Provider',
-        home: CounterScreen(),
+        home: CounterScreenII(),
+        // home: CounterScreen(),
       ),
     );
 

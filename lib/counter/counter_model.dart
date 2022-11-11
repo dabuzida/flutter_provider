@@ -6,33 +6,33 @@ class CounterModel extends ChangeNotifier {
   int get number => _number;
   int get number2 => _number2;
 
-  increase() {
+  void increase() {
     _number++;
     notifyListeners();
   }
 
-  decrease() {
+  void decrease() {
     _number--;
     notifyListeners();
   }
 
-  increase2() {
+  void increase2() {
     _number2++;
     notifyListeners();
   }
 
-  decrease2() {
+  void decrease2() {
     _number2--;
     notifyListeners();
   }
 
-  increaseAll() {
+  void increaseAll() {
     _number++;
     _number2++;
     notifyListeners();
   }
 
-  decreaseAll() {
+  void decreaseAll() {
     _number--;
     _number2--;
     notifyListeners();
