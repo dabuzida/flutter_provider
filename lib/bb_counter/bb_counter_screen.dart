@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_provider/counter2/theme_color_model.dart';
 
-import 'screen_a.dart';
-import 'screen_b.dart';
+import 'bb_theme_color_model.dart';
+import 'i_screen.dart';
+import 'i_screen_ii.dart';
 
-class CounterScreen2 extends StatelessWidget {
-  CounterScreen2({Key? key}) : super(key: key);
+class BBCounterScreen extends StatelessWidget {
+  BBCounterScreen({Key? key}) : super(key: key);
   final colorList = <Color>[
-    ThemeColorModel().red,
-    ThemeColorModel().yellow,
-    ThemeColorModel().green,
-    ThemeColorModel().blue,
-    ThemeColorModel().purple,
+    BBThemeColorModel().red,
+    BBThemeColorModel().yellow,
+    BBThemeColorModel().green,
+    BBThemeColorModel().blue,
+    BBThemeColorModel().purple,
   ];
   @override
   Widget build(BuildContext context) {
@@ -24,13 +24,13 @@ class CounterScreen2 extends StatelessWidget {
         backgroundColor: Colors.teal,
         centerTitle: true,
       ),
-      backgroundColor: context.select<ThemeColorModel, Color>((ThemeColorModel provider) => provider.color),
+      backgroundColor: context.select<BBThemeColorModel, Color>((BBThemeColorModel provider) => provider.color),
       // backgroundColor: context.select( (ThemeColor provider){return provider.color;}),
       persistentFooterButtons: colorList
           .map<Widget>(
             (color) => GestureDetector(
               onTap: () {
-                context.read<ThemeColorModel>().changeColor(color);
+                context.read<BBThemeColorModel>().changeColor(color);
                 // Provider.of<ThemeColor>(context, listen: false).changeColor(color);
               },
               child: Container(
@@ -47,14 +47,14 @@ class CounterScreen2 extends StatelessWidget {
             child: Container(
               decoration: BoxDecoration(border: Border.all(color: Colors.black, width: 11)),
               height: double.infinity,
-              child: ScreenA(),
+              child: BBScreen(),
             ),
           ),
           Expanded(
             child: Container(
               decoration: BoxDecoration(border: Border.all(color: Colors.red, width: 11)),
               height: double.infinity,
-              child: const ScreenB(),
+              child: const BBScreenII(),
             ),
           ),
         ],

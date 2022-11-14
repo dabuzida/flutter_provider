@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_provider/counter2/counter_model_2.dart';
 import 'package:provider/provider.dart';
 
-import 'theme_color_model.dart';
+import 'bb_counter_model.dart';
+import 'bb_theme_color_model.dart';
 
-class ScreenA extends StatelessWidget {
-  ScreenA({Key? key}) : super(key: key);
+class BBScreen extends StatelessWidget {
+  BBScreen({Key? key}) : super(key: key);
   final colorList = <Color>[
-    ThemeColorModel().red,
-    ThemeColorModel().yellow,
-    ThemeColorModel().green,
-    ThemeColorModel().blue,
-    ThemeColorModel().purple,
+    BBThemeColorModel().red,
+    BBThemeColorModel().yellow,
+    BBThemeColorModel().green,
+    BBThemeColorModel().blue,
+    BBThemeColorModel().purple,
   ];
 
   @override
@@ -28,7 +28,7 @@ class ScreenA extends StatelessWidget {
           // const SizedBox(height: 50),
           Text(
             // context.watch<Count>().count.toString(),  //자원소모 적음
-            Provider.of<CounterModel2>(context).count.toString(), // 자원 소모 큼
+            Provider.of<BBCounterModel>(context).count.toString(), // 자원 소모 큼
             // context.select<Count, int>((Count provider) => provider.count).toString(), //자원소모 더적음
             style: const TextStyle(fontSize: 50),
           ),
@@ -39,7 +39,7 @@ class ScreenA extends StatelessWidget {
               TextButton(
                 onPressed: () {
                   // context.read<Count>().decrease();
-                  Provider.of<CounterModel2>(context, listen: false).decrease();
+                  Provider.of<BBCounterModel>(context, listen: false).decrease();
                 },
                 child: const Text(
                   '-',
@@ -49,7 +49,7 @@ class ScreenA extends StatelessWidget {
               TextButton(
                 onPressed: () {
                   // context.read<Count>().increase();
-                  Provider.of<CounterModel2>(context, listen: false).increase();
+                  Provider.of<BBCounterModel>(context, listen: false).increase();
                 },
                 child: const Text(
                   '+',

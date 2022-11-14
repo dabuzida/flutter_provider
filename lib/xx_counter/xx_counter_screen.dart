@@ -1,18 +1,30 @@
 import 'package:flutter/material.dart';
+
 import 'package:provider/provider.dart';
 
-import 'counter_model.dart';
+import 'xx_counter_model.dart';
+import 'xx_watch_read_select.dart';
 
-class CounterScreen extends StatelessWidget {
-  const CounterScreen({Key? key}) : super(key: key);
+class XXCounterScreen extends StatefulWidget {
+  const XXCounterScreen({Key? key}) : super(key: key);
 
   @override
+  State<XXCounterScreen> createState() => _SSCounterScreenState();
+}
+
+class _SSCounterScreenState extends State<XXCounterScreen> {
+  @override
   Widget build(BuildContext context) {
-    final _read = context.read<CounterModel>();
-    final _watch = context.watch<CounterModel>();
+    context.watch<XXCounterModel>().number3 = 3;
+    int as = context.watch<XXCounterModel>().number33;
+
+    context.read<XXCounterModel>().number3 = 343;
+    int xz = context.read<XXCounterModel>().number33;
+    print(as);
+    print(xz);
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Provider: Counter"),
+        title: const Text("Provider: XX Counter"),
         backgroundColor: Colors.teal,
         foregroundColor: Colors.white,
         centerTitle: true,
@@ -22,26 +34,29 @@ class CounterScreen extends StatelessWidget {
         color: Colors.teal.shade100,
         child: Center(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+            // mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              /* Text(
-                _read.number.toString(),
-                style: const TextStyle(fontSize: 50),
-              ), */
-              Text(_read.number.toString()),
-              Text(_watch.number.toString()),
-              Text(context.watch<CounterModel>().number.toString()),
-              Text(context.read<CounterModel>().number.toString()),
-              Text(context.select<CounterModel, int>((CounterModel provider) => provider.number).toString()),
+              SizedBox(height: 100),
+              Container(
+                color: Colors.yellow,
+                child: TextButton(
+                  onPressed: () {
+                    setState(() {});
+                  },
+                  child: Text(
+                    'set state',
+                  ),
+                ),
+              ),
               SizedBox(height: 10),
-              Text(_read.number2.toString()),
-              Text(_watch.number2.toString()),
-              Text(context.watch<CounterModel>().number2.toString()),
-              Text(context.read<CounterModel>().number2.toString()),
-              Text(context.select<CounterModel, int>((CounterModel provider) => provider.number2).toString()),
-              SizedBox(height: 10),
-              Text(context.select<CounterModel, CounterModel>((CounterModel provider) => provider).number2.toString()),
-              const SizedBox(height: 50),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  XXWatchReadSelect(),
+                  // XXRead(),
+                  // XXSelct(),
+                ],
+              ),
               Column(
                 children: <Widget>[
                   Row(
@@ -54,7 +69,7 @@ class CounterScreen extends StatelessWidget {
                         child: Center(child: Text('number >>')),
                       ),
                       Container(
-                        width: 200,
+                        width: 100,
                         height: 100,
                         color: Colors.red.shade100,
                         child: TextButton(
@@ -63,12 +78,12 @@ class CounterScreen extends StatelessWidget {
                             style: TextStyle(fontSize: 30),
                           ),
                           onPressed: () {
-                            context.read<CounterModel>().decrease();
+                            context.read<XXCounterModel>().decrease();
                           },
                         ),
                       ),
                       Container(
-                        width: 200,
+                        width: 100,
                         height: 100,
                         color: Colors.indigo.shade700,
                         child: TextButton(
@@ -77,7 +92,7 @@ class CounterScreen extends StatelessWidget {
                             style: TextStyle(fontSize: 30),
                           ),
                           onPressed: () {
-                            context.read<CounterModel>().increase();
+                            context.read<XXCounterModel>().increase();
                           },
                         ),
                       ),
@@ -93,7 +108,7 @@ class CounterScreen extends StatelessWidget {
                         child: Center(child: Text('number2 >>')),
                       ),
                       Container(
-                        width: 200,
+                        width: 100,
                         height: 100,
                         color: Colors.red.shade100,
                         child: TextButton(
@@ -102,12 +117,12 @@ class CounterScreen extends StatelessWidget {
                             style: TextStyle(fontSize: 30),
                           ),
                           onPressed: () {
-                            context.read<CounterModel>().decrease2();
+                            context.read<XXCounterModel>().decrease2();
                           },
                         ),
                       ),
                       Container(
-                        width: 200,
+                        width: 100,
                         height: 100,
                         color: Colors.indigo.shade700,
                         child: TextButton(
@@ -116,7 +131,7 @@ class CounterScreen extends StatelessWidget {
                             style: TextStyle(fontSize: 30),
                           ),
                           onPressed: () {
-                            context.read<CounterModel>().increase2();
+                            context.read<XXCounterModel>().increase2();
                           },
                         ),
                       ),
@@ -132,7 +147,7 @@ class CounterScreen extends StatelessWidget {
                         child: Center(child: Text('number, number2 >>')),
                       ),
                       Container(
-                        width: 200,
+                        width: 100,
                         height: 100,
                         color: Colors.red.shade100,
                         child: TextButton(
@@ -141,12 +156,12 @@ class CounterScreen extends StatelessWidget {
                             style: TextStyle(fontSize: 30),
                           ),
                           onPressed: () {
-                            context.read<CounterModel>().decreaseAll();
+                            context.read<XXCounterModel>().decreaseAll();
                           },
                         ),
                       ),
                       Container(
-                        width: 200,
+                        width: 100,
                         height: 100,
                         color: Colors.indigo.shade700,
                         child: TextButton(
@@ -155,7 +170,7 @@ class CounterScreen extends StatelessWidget {
                             style: TextStyle(fontSize: 30),
                           ),
                           onPressed: () {
-                            context.read<CounterModel>().increaseAll();
+                            context.read<XXCounterModel>().increaseAll();
                           },
                         ),
                       ),

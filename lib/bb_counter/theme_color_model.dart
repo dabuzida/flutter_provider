@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class ThemeColorModel with ChangeNotifier {
+class BBThemeColorModel with ChangeNotifier {
   Color _color = Colors.blue[100]!;
   Color get color => _color;
 

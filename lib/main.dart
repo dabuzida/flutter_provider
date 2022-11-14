@@ -1,13 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_provider/reverse_select/reverse_select_model.dart';
+import 'package:flutter_provider/reverse_select/reverse_select_screen.dart';
 import 'package:provider/provider.dart';
-import 'package:flutter_provider/counter2/counter_model_2.dart';
-import 'package:flutter_provider/counter2/theme_color_model.dart';
+import 'package:flutter_provider/bb_counter/bb_counter_model.dart';
+import 'package:flutter_provider/bb_counter/theme_color_model.dart';
 import 'package:provider/single_child_widget.dart';
 
-import 'counter/counter_model.dart';
-import 'counter/counter_screen.dart';
-import 'counter/counter_screen_ii.dart';
-import 'counter2/counter_screen_2.dart';
+import 'gg_counter/gg_counter_model.dart';
+import 'gg_counter/gg_counter_screen.dart';
+import 'gg_counter/gg_counter_screen_ii.dart';
+import 'test_select_rebuild/test_select_rebuild_model.dart';
+import 'test_select_rebuild/test_select_rebuild_screen.dart';
 
 void main() => runApp(const MyApp());
 
@@ -17,15 +20,34 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // 1. 상태관리 모델 1개일때
-    return ChangeNotifierProvider<CounterModel>(
+    return ChangeNotifierProvider<ReverseSelectModel>(
       // create: (BuildContext context) => CounterModel(),
-      create: (_) => CounterModel(),
+      create: (_) => ReverseSelectModel(),
       child: const MaterialApp(
         title: 'Provider',
-        home: CounterScreenII(),
+        home: ReverseSelectScreen(),
         // home: CounterScreen(),
       ),
     );
+    //
+    // return ChangeNotifierProvider<TestSelectRebuildModel>(
+    //   // create: (BuildContext context) => CounterModel(),
+    //   create: (_) => TestSelectRebuildModel(),
+    //   child: const MaterialApp(
+    //     title: 'Provider',
+    //     home: TestSelectRebuildScreen(),
+    //     // home: CounterScreen(),
+    //   ),
+    // );
+    // return ChangeNotifierProvider<GGCounterModel>(
+    //   // create: (BuildContext context) => CounterModel(),
+    //   create: (_) => GGCounterModel(),
+    //   child: const MaterialApp(
+    //     title: 'Provider',
+    //     home: GGCounterScreenII(),
+    //     // home: CounterScreen(),
+    //   ),
+    // );
 
     // 2. 상태관리 모델 여러개 일때
     // return MultiProvider(

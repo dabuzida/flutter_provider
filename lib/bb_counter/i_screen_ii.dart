@@ -1,28 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'counter_model_2.dart';
+import 'bb_counter_model.dart';
 
-class ScreenB extends StatefulWidget {
-  const ScreenB({Key? key}) : super(key: key);
+class BBScreenII extends StatefulWidget {
+  const BBScreenII({Key? key}) : super(key: key);
 
   @override
-  State<ScreenB> createState() => _ScreenBState();
+  State<BBScreenII> createState() => _BBScreenIIState();
 }
 
-class _ScreenBState extends State<ScreenB> {
+class _BBScreenIIState extends State<BBScreenII> {
   @override
   Widget build(BuildContext context) {
-    CounterModel2 _countProvider = Provider.of<CounterModel2>(context, listen: false);
+    BBCounterModel _countProvider = Provider.of<BBCounterModel>(context, listen: false);
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Consumer<CounterModel2>(
+          Consumer<BBCounterModel>(
             builder: (context, countProvider, child) => Text(
               // Provider.of<Count>(context).count.toString(),
               // context.watch<Count>().count.toString(),
-              context.select<CounterModel2, int>((CounterModel2 provider) => provider.count).toString(),
+              context.select<BBCounterModel, int>((BBCounterModel provider) => provider.count).toString(),
               style: const TextStyle(fontSize: 60),
             ),
           ),

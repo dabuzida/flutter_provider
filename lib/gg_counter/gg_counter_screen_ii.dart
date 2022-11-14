@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'counter_model.dart';
+import 'gg_counter_model.dart';
 
-class CounterScreenII extends StatelessWidget {
-  const CounterScreenII({Key? key}) : super(key: key);
+class GGCounterScreenII extends StatelessWidget {
+  const GGCounterScreenII({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -36,9 +36,10 @@ class CounterScreenII extends StatelessWidget {
                   // const SizedBox(width: 30),
                   _displayRead(context),
                   const SizedBox(width: 30),
-                  _displayWatch(context),
+                  // _displayWatch(context),
                   const SizedBox(width: 30),
-                  _displaySelect(context),
+                  // _displaySelect(context),
+                  _container(),
                 ],
               ),
               const Divider(),
@@ -59,64 +60,73 @@ class CounterScreenII extends StatelessWidget {
     );
   }
 
-  Widget _displayNumber(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        // Text(_read.number.toString()),
-        // Text(_watch.number.toString()),
-        Text(context.watch<CounterModel>().number.toString()),
-        Text(context.read<CounterModel>().number.toString()),
-        Text(context.select<CounterModel, int>((CounterModel provider) => provider.number).toString()),
-      ],
+  Widget _container() {
+    print('_container');
+    return Container(
+      width: 50,
+      height: 50,
+      color: Colors.red,
     );
   }
 
-  Widget _displayNumber2(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        // Text(_read.number2.toString()),
-        // Text(_watch.number2.toString()),
-        Text(context.watch<CounterModel>().number2.toString()),
-        Text(context.read<CounterModel>().number2.toString()),
-        Text(context.select<CounterModel, int>((CounterModel provider) => provider.number2).toString()),
-      ],
-    );
-  }
+  // Widget _displayNumber(BuildContext context) {
+  //   return Column(
+  //     children: <Widget>[
+  //       // Text(_read.number.toString()),
+  //       // Text(_watch.number.toString()),
+  //       Text(context.watch<GGCounterModel>().number.toString()),
+  //       Text(context.read<GGCounterModel>().number.toString()),
+  //       Text(context.select<GGCounterModel, int>((GGCounterModel provider) => provider.number).toString()),
+  //     ],
+  //   );
+  // }
 
-  Widget _displayRest(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Text(context.select<CounterModel, CounterModel>((CounterModel provider) => provider).number2.toString()),
-      ],
-    );
-  }
+  // Widget _displayNumber2(BuildContext context) {
+  //   return Column(
+  //     children: <Widget>[
+  //       // Text(_read.number2.toString()),
+  //       // Text(_watch.number2.toString()),
+  //       Text(context.watch<GGCounterModel>().number2.toString()),
+  //       Text(context.read<GGCounterModel>().number2.toString()),
+  //       Text(context.select<GGCounterModel, int>((GGCounterModel provider) => provider.number2).toString()),
+  //     ],
+  //   );
+  // }
+
+  // Widget _displayRest(BuildContext context) {
+  //   return Column(
+  //     children: <Widget>[
+  //       Text(context.select<GGCounterModel, GGCounterModel>((GGCounterModel provider) => provider).number2.toString()),
+  //     ],
+  //   );
+  // }
 
   Widget _displayRead(BuildContext context) {
     print('read');
     return Column(
       children: <Widget>[
-        Text(context.read<CounterModel>().number.toString()),
-        Text(context.read<CounterModel>().number2.toString()),
+        Text(context.read<GGCounterModel>().number.toString()),
+        Text(context.read<GGCounterModel>().number2.toString()),
       ],
     );
   }
 
-  Widget _displayWatch(BuildContext context) {
-    print('watch');
-    return Column(
-      children: <Widget>[
-        Text(context.watch<CounterModel>().number.toString()),
-        Text(context.watch<CounterModel>().number2.toString()),
-      ],
-    );
-  }
+  // Widget _displayWatch(BuildContext context) {
+  //   print('watch');
+  //   return Column(
+  //     children: <Widget>[
+  //       Text(context.watch<GGCounterModel>().number.toString()),
+  //       Text(context.watch<GGCounterModel>().number2.toString()),
+  //     ],
+  //   );
+  // }
 
   Widget _displaySelect(BuildContext context) {
     print('select');
     return Column(
       children: <Widget>[
-        Text(context.select<CounterModel, int>((CounterModel provider) => provider.number).toString()),
-        Text(context.select<CounterModel, int>((CounterModel provider) => provider.number2).toString()),
+        Text(context.select<GGCounterModel, int>((GGCounterModel provider) => provider.number).toString()),
+        Text(context.select<GGCounterModel, int>((GGCounterModel provider) => provider.number2).toString()),
       ],
     );
   }
@@ -141,7 +151,7 @@ class CounterScreenII extends StatelessWidget {
               style: TextStyle(fontSize: 30),
             ),
             onPressed: () {
-              context.read<CounterModel>().decrease();
+              context.read<GGCounterModel>().decrease();
             },
           ),
         ),
@@ -155,7 +165,7 @@ class CounterScreenII extends StatelessWidget {
               style: TextStyle(fontSize: 30),
             ),
             onPressed: () {
-              context.read<CounterModel>().increase();
+              context.read<GGCounterModel>().increase();
             },
           ),
         ),
@@ -183,7 +193,7 @@ class CounterScreenII extends StatelessWidget {
               style: TextStyle(fontSize: 30),
             ),
             onPressed: () {
-              context.read<CounterModel>().decrease2();
+              context.read<GGCounterModel>().decrease2();
             },
           ),
         ),
@@ -197,7 +207,7 @@ class CounterScreenII extends StatelessWidget {
               style: TextStyle(fontSize: 30),
             ),
             onPressed: () {
-              context.read<CounterModel>().increase2();
+              context.read<GGCounterModel>().increase2();
             },
           ),
         ),
@@ -225,7 +235,7 @@ class CounterScreenII extends StatelessWidget {
               style: TextStyle(fontSize: 30),
             ),
             onPressed: () {
-              context.read<CounterModel>().decreaseAll();
+              context.read<GGCounterModel>().decreaseAll();
             },
           ),
         ),
@@ -239,7 +249,7 @@ class CounterScreenII extends StatelessWidget {
               style: TextStyle(fontSize: 30),
             ),
             onPressed: () {
-              context.read<CounterModel>().increaseAll();
+              context.read<GGCounterModel>().increaseAll();
             },
           ),
         ),
