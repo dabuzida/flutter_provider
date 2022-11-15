@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'bb_counter_model.dart';
-import 'bb_theme_color_model.dart';
+import 'theme_color_model.dart';
 
 class BBScreen extends StatelessWidget {
   BBScreen({Key? key}) : super(key: key);

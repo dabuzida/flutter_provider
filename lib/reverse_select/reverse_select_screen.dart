@@ -12,6 +12,9 @@ class ReverseSelectScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     print('scaffold');
+    context.read<ReverseSelectModel>().x = 112;
+    // context.watch<ReverseSelectModel>().x = 11;
+    // context.select<ReverseSelectModel, int>((ReverseSelectModel provider) => provider.number).toString()}
     return Scaffold(
       appBar: AppBar(
         title: const Text("Provider: Counter"),
@@ -29,6 +32,7 @@ class ReverseSelectScreen extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Text(context.watch<ReverseSelectModel>().x!.toString()),
                   ReverseSelectScreenA(),
                   ReverseSelectScreenB(),
                 ],

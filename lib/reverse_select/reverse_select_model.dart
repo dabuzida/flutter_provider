@@ -9,6 +9,7 @@ class ReverseSelectModel extends ChangeNotifier {
   int get number2 => _number2;
   int get number3 => _number3;
   int get number4 => _number4;
+  int? x;
 
   void increase() {
     print('clicked!');
