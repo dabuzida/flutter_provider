@@ -1,0 +1,10 @@
+
+컨트롤러(num 증가, 감소)
+ㅣ
+select-a-num ㅡ select-b-num2
+                      ㅣ
+                select-c-num3
+                      ㅣ
+                watch-d-num4
+
+컨트롤러 작동시, 어떤 위젯이 리빌드 되는지 그리고 select, watch의 차이

@@ -6,9 +6,6 @@ import 'package:flutter_provider/bb_counter/bb_counter_model.dart';
 import 'package:flutter_provider/bb_counter/theme_color_model.dart';
 import 'package:provider/single_child_widget.dart';
 
-import 'gg_counter/gg_counter_model.dart';
-import 'gg_counter/gg_counter_screen.dart';
-import 'gg_counter/gg_counter_screen_ii.dart';
 import 'test_select_rebuild/test_select_rebuild_model.dart';
 import 'test_select_rebuild/test_select_rebuild_screen.dart';
 
